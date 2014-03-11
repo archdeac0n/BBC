@@ -1,0 +1,34 @@
+﻿<Window x:Class="WpfApplication2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.Resources>
+            <VisualBrush x:Key="WavyBrush" Viewbox="0,0,3,2" ViewboxUnits="Absolute" 
+                         Viewport="0,0.8,6,4" ViewportUnits="Absolute" TileMode="Tile">
+                <VisualBrush.Visual>
+                    <Path Data="M 0,1 C 1,0 2,2 3,1" Stroke="Red" StrokeThickness="0.2" 
+                          StrokeEndLineCap="Square" StrokeStartLineCap="Square" />
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Grid.Resources>
+        <ToolBar>
+            <ToolBarPanel>
+                <Button x:Name="btnSpelling" Content="Spell Checker" HorizontalAlignment="Left" Width="86" Click="btnSpelling_Click"/>
+            </ToolBarPanel>
+            <ToolBarPanel>
+                <Label>Language for Spelling:</Label>
+            </ToolBarPanel>
+            <ToolBarPanel>
+                <ComboBox x:Name="cbxLanguage" SelectionChanged="cbxLanguage_SelectionChanged"  >
+                    <ComboBoxItem ContentStringFormat="en_US"/>
+                </ComboBox>
+            </ToolBarPanel>
+        </ToolBar>
+        <RichTextBox Name="richTextBox1" Grid.ColumnSpan="2" Margin="0,24,0,0">
+            <FlowDocument Name="flowDocument1">
+                <Paragraph ContextMenuOpening="Paragraph_ContextMenuOpening">I am progemeer in WPF I am more effficient in coding. But be warned about the color or is it colour.</Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+    </Grid>
+</Window>
